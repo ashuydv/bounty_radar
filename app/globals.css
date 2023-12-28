@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Pangaia;
+  src: url(../components/assets/Pangaia.otf);
+}
+
+@font-face {
+  font-family: Avgardd;
+  src: url(../components/assets/AVGARDD.woff);
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.avgardd {
+  font-family: Avgardd, sans-serif !important;
+}
+
+.pangaia {
+  font-family: Pangaia, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span {
+  font-family: Pangaia, sans-serif !important;
+}
+
+header .link {
+  position: relative;
+}
+
+header .link a {
+  z-index: 20;
+  position: relative;
+  transition: all .3s ease-in-out;
+}
+
+header .link::after {
+  content:"";
+  position: absolute;
+  bottom: 0%;
+  left: -5%;
+  width: 24px;
+  height: 24px;
+  background: rgb(88 28 135);
+  z-index: 0;
+  border-radius: 1rem;
+  transition: all .3s ease-in-out;
+  padding: 5px 0px;
+}
+
+
+header .link:hover::after {
+  bottom: 0%;
+  left: 25%;
+}
+
+header .link:hover a  {
+  color: white;
+}
