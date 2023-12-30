@@ -3,13 +3,9 @@
 import Card from './card'; // Adjust the import path as needed
 import React, { useEffect, useState } from 'react';
 
-interface Product {
-    title: string;
-    startDate: string;
-    endDate: string;
-    description: string;
-    link: string,
-    pricing: string
+interface Platforms {
+    platformName: string,
+    website: string,
 }
 
 const Loading: React.FC = () => (
@@ -20,18 +16,18 @@ const Loading: React.FC = () => (
 
 const NoBounties: React.FC = () => (
     <div className="flex w-full">
-        <p className="text-white text-lg">No bounties found</p>
+        <p className="text-white text-lg">No platforms found</p>
     </div>
 );
 
 const Bounties: React.FC = () => {
-    const [data, setData] = useState<Product[]>([]);
+    const [data, setData] = useState<Platforms[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("/api/sheets/");
+                const response = await fetch("/api/platforms/");
                 const res = await response.json();
                 setData(res.data);
             } catch (error) {
@@ -46,7 +42,7 @@ const Bounties: React.FC = () => {
 
     return (
         <section className="text-gray-400 body-font">
-            <div className="container py-8 mx-auto">
+            <div className="container py-8 mx-auto ">
                 {loading ? (
                     <Loading />
                 ) : data.length === 0 ? (
@@ -54,7 +50,7 @@ const Bounties: React.FC = () => {
                 ) : (
                     <div className="grid md:grid-cols-2 gap-[20px]">
                         {data && data.map((item, index) => (
-                            <Card key={index} name={item.title} startDate={item.startDate} endDate={item.endDate} description={item.description} link={item.link} pricing={item.pricing} />
+                            <Card key={index} name={item.platformName} link={item.website} description={item.website} />
                         ))}
                     </div>
                 )}

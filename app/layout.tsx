@@ -6,6 +6,8 @@ import Header from '@/components/header'
 import './page.module.css'
 import { NextUIProvider } from '@nextui-org/react'
 import { AnimatePresence, motion, Spring } from "framer-motion";
+import { Toaster } from 'react-hot-toast'
+import Footer from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NextUIProvider>
+          <Toaster />
           <AnimatePresence mode="wait" initial={false}>
             <motion.div>
               <motion.div
@@ -56,9 +59,10 @@ export default function RootLayout({
                 animate={{ height: "0vh", transition: { delay: 0.2 } }}
               />
               <Header />
-              <main className='main overflow-hidden'>
+              <main className='main w-5/6 mx-auto'>
                 {children}
               </main>
+              <Footer />
             </motion.div>
           </AnimatePresence>
         </NextUIProvider>

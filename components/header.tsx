@@ -6,20 +6,20 @@ type Props = {}
 const Header = (props: Props) => {
     return (
         <header className="avgardd fixed bg-transparent z-50 w-full body-font">
-            <div className="container p-4 md:p-[20px]">
+            <div className="container p-4 md:p-[20px] mx-auto">
                 <div className="flex flex-wrap rounded-3xl overflow-hidden p-5 flex-row md:flex-row items-center bg-[#0f0f0fcc] backdrop-blur-[100px] justify-between">
-                    <a className="flex title-font font-medium items-center text-white mb-0">
+                    <a href='/' className="flex title-font font-medium items-center text-white mb-0">
                         <span className='w-8 h-8 bg-purple-900 px-2 rounded-full'></span>
                         <span className="-ml-4 text-xl"> bountyradar</span>
                     </a>
                     <div className=" space-x-4">
                         <ul className='flex items-center space-x-4'>
-                            <li className='link'>
+                            {/* <li className='link'>
                                 <Link href="/bounties">bounties</Link>
                             </li>
                             <li className='link'>
                                 <Link href="/resources">resources</Link>
-                            </li>
+                            </li> */}
                             <li className='link'>
                                 <Link href="/new-bounty">add bounties</Link>
                             </li>
